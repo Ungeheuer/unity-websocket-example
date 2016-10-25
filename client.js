@@ -1,7 +1,7 @@
 var connection = null;
 var connected = false;
 
-function isConnected() {
+function IsConnected() {
   return connection !== null && connected;
 }
 
@@ -33,7 +33,7 @@ function Disconnect() {
   connection = null;
 }
 
-function sendEvent(dataStr) {
+function SendEvent(dataStr) {
   if (!isConnected()) {
     console.log('not connected');
     return;
@@ -45,5 +45,5 @@ function sendEvent(dataStr) {
 function onEventReceived(data) {
   console.log('received event', data);
   // send to unity....
-  SendMessage('XXX','onEventReceived',JSON.stringify(data));
+  SendMessage('NetworkManager','onEventReceived',JSON.stringify(data));
 }
